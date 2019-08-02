@@ -112,7 +112,7 @@ def mk_anp_chan_cross_plot(settings):
     yield "fq *;ch none"
     yield "new all f bl t"
     yield "avt vector;avc none"
-    yield "pt ampchan; reset; nxy 3 10; multi t"
+    yield "pt ampchan; reset; nxy 3 11; multi t"
     # set colouring based on polarization i.s.o. auto colour
     # assignment
     yield "ckey p[rr,none]=2 p[ll]=3 p[rl]=4 p[lr]=5"
@@ -123,10 +123,11 @@ def mk_anp_chan_cross_plot(settings):
     # ok, now (almost) same data: no cross pols, different plot
     yield "pt phachan"
     yield "fq */p"
-    yield "reset; nxy 3 12;multi t"
+    yield "reset; nxy 3 11;multi t"
     # set colouring based on polarization i.s.o. auto colour
     # assignment
     yield "ckey p[rr,none]=2 p[ll]=3 p[rl]=4 p[lr]=5"
+    yield "sort bl"
     yield "refile {0}-pf.ps/vcps".format( settings.myBasename )
     yield "draw points; pl"
 
@@ -137,7 +138,7 @@ def mk_phase_time(settings):
     yield "fq */p;ch 0.1*last:0.9*last"
     yield "new all f bl t;"
     yield "avt none;avc vector"
-    yield "pt phatime; reset; nxy 3 12"
+    yield "pt phatime; reset; nxy 3 11"
     yield "sort bl" 
     yield "refile {0}-pt.ps/vcps".format( settings.myBasename )
     yield "draw points; pl"
